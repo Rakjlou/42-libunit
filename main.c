@@ -58,10 +58,11 @@ static int	test5(void)
 
 static int	test6(void)
 {
-    FILE *f = tmpfile();
-    int *m = mmap(0, 4, PROT_WRITE, MAP_PRIVATE, fileno(f), 0);
-    *m = 0;
-    return 0;
+	FILE *f = tmpfile();
+	int *m = mmap(0, 4, PROT_WRITE, MAP_PRIVATE, fileno(f), 0);
+	*m = 0;
+
+	return 0;
 }
 
 static int	test7(void)

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 06:51:36 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/08 07:32:49 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/08 22:25:50 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	test_summary(t_test *test, char *section_name)
 	write(STDOUT_FILENO, section_name, ft_strlen(section_name));
 	write(STDOUT_FILENO, ":", 1);
 	write(STDOUT_FILENO, test->name, ft_strlen(test->name));
-	write(STDOUT_FILENO, ":", 1);
+	write(STDOUT_FILENO, ":[", 2);
 	if (test->status == SUCCESS)
 		write(STDOUT_FILENO, "OK", 2);
 	else if (test->status == SEGV)
@@ -40,7 +40,7 @@ static void	test_summary(t_test *test, char *section_name)
 		write(STDOUT_FILENO, "SIGBUS", 6);
 	else
 		write(STDOUT_FILENO, "KO", 2);
-	write(STDOUT_FILENO, "\n", 1);
+	write(STDOUT_FILENO, "]\n", 2);
 }
 
 static void	wait_test_status(t_test *test)
