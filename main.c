@@ -1,5 +1,8 @@
 #include "libunit.h"
 #include <stdio.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <sys/mman.h>
 
 /*
 	Salut !
@@ -29,10 +32,12 @@ static int	test1(void)
 {
 	return (0);
 }
+
 static int	test2(void)
 {
 	return (-1);
 }
+
 static int	test3(void)
 {
 	char	*foo = NULL;
@@ -40,29 +45,35 @@ static int	test3(void)
 	foo[10000] = 'F';
 	return (0);
 }
+
 static int	test4(void)
 {
 	return (0);
 }
+
 static int	test5(void)
 {
 	return (-1);
 }
+
 static int	test6(void)
 {
-	char	*foo = "ldjgldsf";
-
-	foo[2] = 'A';
-	return (0);
+    FILE *f = tmpfile();
+    int *m = mmap(0, 4, PROT_WRITE, MAP_PRIVATE, fileno(f), 0);
+    *m = 0;
+    return 0;
 }
+
 static int	test7(void)
 {
 	return (-1);
 }
+
 static int	test8(void)
 {
 	return (0);
 }
+
 static int	test9(void)
 {
 	return (-1);
