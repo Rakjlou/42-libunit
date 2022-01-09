@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 06:31:55 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/09 04:02:47 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/09 06:28:48 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_test	*test_new(char *name, int (*callback)(void))
 	test->name = ft_strdup(name);
 	test->callback = callback;
 	test->status = UNKNOWN;
-	test->uses_stdout = 0;
+	test->timeout = -1;
 	return (test);
 }
 

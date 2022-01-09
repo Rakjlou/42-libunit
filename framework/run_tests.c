@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 06:51:36 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/09 05:54:37 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/09 06:51:16 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static void	test_summary(t_test *test, char *section_name)
 		ft_putstr("\033[0;31mSIGSEGV\033[0m");
 	else if (test->status == BUS)
 		ft_putstr("\033[0;31mSIGBUS\033[0m");
+	else if (test->status == TIMEOUT)
+		ft_putstr("\033[0;31mTIMEOUT\033[0m");
 	else
 		ft_putstr("\033[0;31mKO\033[0m");
 	ft_putstr("]\n");
@@ -52,6 +54,8 @@ static void	wait_test_status(t_test *test)
 		test->status = SUCCESS;
 	else if (WIFEXITED(status) && WEXITSTATUS(status) == -1)
 		test->status = ERROR;
+	else if (WIFEXITED(status) && WEXITSTATUS(status) == 112)
+		test->status = TIMEOUT;
 	else if (WIFSIGNALED(status) && WTERMSIG(status) == SIGSEGV)
 		test->status = SEGV;
 	else if (WIFSIGNALED(status) && WTERMSIG(status) == SIGBUS)
@@ -69,6 +73,8 @@ static void	execute_test(t_suite *suite, t_test *test)
 		test->status = INTERNAL_ERROR;
 	else if (cpid == 0)
 	{
+		if (test->timeout > 0)
+			setup_timer(test->timeout);
 		callback = test->callback;
 		ft_lstclear(&suite->tests, destroy_test);
 		exit(callback());

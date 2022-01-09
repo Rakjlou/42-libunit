@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/09 05:49:45 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/09 06:46:56 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,12 +29,13 @@ SRC = framework/ft/ft_bzero.c \
 	framework/init_suite.c \
 	framework/end_suite.c \
 	framework/stdout_capture.c \
+	framework/timeout.c \
 
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -pedantic -ansi -g3 -I framework/
+CFLAGS = -Wall -Wextra -Werror -g3 -I framework/
 
 all: $(NAME)
 
