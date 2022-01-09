@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/09 01:06:29 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/09 03:47:55 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC = framework/ft/ft_bzero.c \
 	framework/ft/ft_strlen.c \
 	framework/ft/ft_memcpy.c \
 	framework/ft/ft_putnbr.c \
+	framework/ft/ft_putstr.c \
 	framework/run_tests.c \
 	framework/test_add.c \
 	framework/init_suite.c \

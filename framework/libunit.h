@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 00:57:29 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/09 00:59:58 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/09 03:47:48 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int		end_suite(t_suite *suite);
 /* libft */
 size_t	ft_strlen(const char *s);
 void	ft_putnbr(int n);
+void	ft_putstr(const char *str);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);

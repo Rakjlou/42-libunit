@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 06:51:36 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/09 03:37:12 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/09 03:46:41 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,19 @@ static void	destroy_test(void *content)
 
 static void	test_summary(t_test *test, char *section_name)
 {
-	write(STDOUT_FILENO, section_name, ft_strlen(section_name));
-	write(STDOUT_FILENO, ":", 1);
-	write(STDOUT_FILENO, test->name, ft_strlen(test->name));
-	write(STDOUT_FILENO, ":[", 2);
+	ft_putstr(section_name);
+	ft_putstr(":");
+	ft_putstr(test->name);
+	ft_putstr(":[");
 	if (test->status == SUCCESS)
-		write(STDOUT_FILENO, "\033[0;32mOK\033[0m", 13);
+		ft_putstr("\033[0;32mOK\033[0m");
 	else if (test->status == SEGV)
-		write(STDOUT_FILENO, "\033[0;31mSIGSEGV\033[0m", 18);
+		ft_putstr("\033[0;31mSIGSEGV\033[0m");
 	else if (test->status == BUS)
-		write(STDOUT_FILENO, "\033[0;31mSIGBUS\033[0m", 17);
+		ft_putstr("\033[0;31mSIGBUS\033[0m");
 	else
-		write(STDOUT_FILENO, "\033[0;31mKO\033[0m", 13);
-	write(STDOUT_FILENO, "]\n", 2);
+		ft_putstr("\033[0;31mKO\033[0m");
+	ft_putstr("]\n");
 }
 
 static void	wait_test_status(t_test *test)
