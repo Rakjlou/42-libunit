@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 00:57:29 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/08 07:37:08 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/09 00:59:58 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,20 @@ typedef struct s_test
 
 typedef struct s_suite
 {
-	t_list			*tests;
-	unsigned int	total;
-	unsigned int	success;
+	t_list	*tests;
+	int		total;
+	int		success;
 }	t_suite;
 
 /* libunit */
 void	test_add(t_suite *suite, char *name, int (*callback)(void));
 void	run_tests(t_suite *suite, char *section_name);
+void	init_suite(t_suite *suite);
+int		end_suite(t_suite *suite);
 
 /* libft */
 size_t	ft_strlen(const char *s);
+void	ft_putnbr(int n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);

@@ -6,40 +6,37 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/09 01:06:29 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/09 00:49:55 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libunit.a
+NAME = tests
 
-SRC = framework/ft/ft_bzero.c \
-	framework/ft/ft_calloc.c \
-	framework/ft/ft_lstadd_back.c \
-	framework/ft/ft_lstclear.c \
-	framework/ft/ft_lstnew.c \
-	framework/ft/ft_memset.c \
-	framework/ft/ft_strdup.c \
-	framework/ft/ft_strlen.c \
-	framework/ft/ft_memcpy.c \
-	framework/ft/ft_putnbr.c \
-	framework/run_tests.c \
-	framework/test_add.c \
-	framework/init_suite.c \
-	framework/end_suite.c \
+SRC = main.c \
+	failure/00_launcher.c \
+	failure/01_test.c \
+	sigbus/00_launcher.c \
+	sigbus/01_test.c \
+	sigsev/00_launcher.c \
+	sigsev/01_test.c \
+	success/00_launcher.c \
+	success/01_test.c
 
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -pedantic -ansi -g3 -I framework/
+CFLAGS = -Wall -Wextra -Werror -g3 -I ../framework/
+LDFLAGS = -L ../
+LDLIBS = -lunit
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rcs  $(NAME) $(OBJ)
+	$(CC) $(OBJ) -o $@ $(LDFLAGS) $(LDLIBS)
 
-test:
-	make --no-print-directory -C tests/ test
+test: all
+	./tests
 
 clean:
 	rm -f $(OBJ)
