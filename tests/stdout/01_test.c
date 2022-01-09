@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   launchers.h                                        :+:      :+:    :+:   */
+/*   01_test.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 23:46:57 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/09 04:05:49 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/09 00:00:20 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/09 06:10:12 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LAUNCHERS_H
-# define LAUNCHERS_H
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "libunit.h"
 
-# include "libunit.h"
+int	stdout_test(void)
+{
+	int		result;
+	char	*ref;
+	char	*line;
 
-void	success_launcher(t_suite *suite);
-void	failure_launcher(t_suite *suite);
-void	sigsev_launcher(t_suite *suite);
-void	sigbus_launcher(t_suite *suite);
-void	stdout_launcher(t_suite *suite);
-
-#endif
+	result = 0;
+	ref = "This is a test\n";
+	ft_putstr(ref);
+	line = get_stdout_line();
+	if (strcmp(line, ref) != 0)
+		result = -1;
+	free(line);
+	return (result);
+}

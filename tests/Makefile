@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/09 00:49:55 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/09 06:10:23 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ SRC = main.c \
 	sigsev/00_launcher.c \
 	sigsev/01_test.c \
 	success/00_launcher.c \
-	success/01_test.c
+	success/01_test.c \
+	stdout/00_launcher.c \
+	stdout/01_test.c \
 
 OBJ = $(SRC:.c=.o)
 

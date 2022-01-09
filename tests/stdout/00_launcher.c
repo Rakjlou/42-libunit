@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   launchers.h                                        :+:      :+:    :+:   */
+/*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 23:46:57 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/09 04:05:49 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/09 00:00:20 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/09 04:05:44 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LAUNCHERS_H
-# define LAUNCHERS_H
+#include "tests.h"
+#include "libunit.h"
 
-# include "libunit.h"
-
-void	success_launcher(t_suite *suite);
-void	failure_launcher(t_suite *suite);
-void	sigsev_launcher(t_suite *suite);
-void	sigbus_launcher(t_suite *suite);
-void	stdout_launcher(t_suite *suite);
-
-#endif
+void	stdout_launcher(t_suite *suite)
+{
+	test_add(suite, "test", stdout_test);
+	run_tests(suite, "stdout");
+}

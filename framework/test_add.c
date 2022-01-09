@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 06:31:55 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/08 07:18:59 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/09 04:02:47 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,17 @@ static t_test	*test_new(char *name, int (*callback)(void))
 	test->name = ft_strdup(name);
 	test->callback = callback;
 	test->status = UNKNOWN;
+	test->uses_stdout = 0;
 	return (test);
 }
 
-void	test_add(t_suite *suite, char *name, int (*callback)(void))
+t_test	*test_add(t_suite *suite, char *name, int (*callback)(void))
 {
 	t_test	*test;
 
 	test = test_new(name, callback);
 	if (test == NULL)
-		return ;
+		return (NULL);
 	ft_lstadd_back(&suite->tests, test);
+	return (test);
 }

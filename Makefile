@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/09 03:47:55 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/09 05:49:45 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,12 @@ SRC = framework/ft/ft_bzero.c \
 	framework/ft/ft_memcpy.c \
 	framework/ft/ft_putnbr.c \
 	framework/ft/ft_putstr.c \
+	framework/ft/get_next_line.c \
 	framework/run_tests.c \
 	framework/test_add.c \
 	framework/init_suite.c \
 	framework/end_suite.c \
+	framework/stdout_capture.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -38,6 +40,8 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs  $(NAME) $(OBJ)
+
+bonus: all
 
 test:
 	make --no-print-directory -C tests/ test

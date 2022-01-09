@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 06:51:36 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/09 03:46:41 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/09 05:54:37 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ static void	execute_test(t_suite *suite, t_test *test)
 	pid_t	cpid;
 	int		(*callback)(void);
 
+	start_stdout_capture(suite);
 	cpid = fork();
 	if (cpid == -1)
 		test->status = INTERNAL_ERROR;
@@ -73,7 +74,10 @@ static void	execute_test(t_suite *suite, t_test *test)
 		exit(callback());
 	}
 	else
+	{
 		wait_test_status(test);
+		end_stdout_capture(suite);
+	}
 }
 
 void	run_tests(t_suite *suite, char *section_name)
@@ -81,6 +85,7 @@ void	run_tests(t_suite *suite, char *section_name)
 	t_list	*cursor;
 	t_test	*test;
 
+	get_stdout_fd(suite);
 	cursor = suite->tests;
 	while (cursor)
 	{
