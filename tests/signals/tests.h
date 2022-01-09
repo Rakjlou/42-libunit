@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tests.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 23:46:31 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/09 07:02:36 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/09 00:00:20 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/09 07:03:38 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "launchers.h"
+#ifndef TESTS_H
+# define TESTS_H
 
-int	main(void)
-{
-	t_suite	suite;
+int	abort_test(void);
+int	fpe_test(void);
+int	pipe_test(void);
+int	ill_test(void);
 
-	init_suite(&suite);
-	success_launcher(&suite);
-	failure_launcher(&suite);
-	sigsev_launcher(&suite);
-	sigbus_launcher(&suite);
-	stdout_launcher(&suite);
-	timeout_launcher(&suite);
-	signals_launcher(&suite);
-	return (end_suite(&suite));
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 00:57:29 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/09 06:45:35 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/09 06:59:18 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ typedef enum e_status
 	ERROR,
 	SEGV,
 	BUS,
+	ABORT,
+	FPE,
+	PIPE,
+	ILL,
 	TIMEOUT,
 	INTERNAL_ERROR
 }	t_status;

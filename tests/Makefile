@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/09 06:51:38 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/09 07:03:14 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,11 @@ SRC = main.c \
 	stdout/01_test.c \
 	timeout/00_launcher.c \
 	timeout/01_test.c \
+	signals/00_launcher.c \
+	signals/01_abort.c \
+	signals/02_fpe.c \
+	signals/03_pipe.c \
+	signals/04_ill.c \
 
 OBJ = $(SRC:.c=.o)
 

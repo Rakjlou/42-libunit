@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 06:51:36 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/09 06:51:16 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/09 07:01:19 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,14 @@ static void	test_summary(t_test *test, char *section_name)
 		ft_putstr("\033[0;31mSIGSEGV\033[0m");
 	else if (test->status == BUS)
 		ft_putstr("\033[0;31mSIGBUS\033[0m");
+	else if (test->status == ABORT)
+		ft_putstr("\033[0;31mSIGABRT\033[0m");
+	else if (test->status == FPE)
+		ft_putstr("\033[0;31mSIGFPE\033[0m");
+	else if (test->status == PIPE)
+		ft_putstr("\033[0;31mSIGPIPE\033[0m");
+	else if (test->status == ILL)
+		ft_putstr("\033[0;31mSIGILL\033[0m");
 	else if (test->status == TIMEOUT)
 		ft_putstr("\033[0;31mTIMEOUT\033[0m");
 	else
@@ -60,6 +68,14 @@ static void	wait_test_status(t_test *test)
 		test->status = SEGV;
 	else if (WIFSIGNALED(status) && WTERMSIG(status) == SIGBUS)
 		test->status = BUS;
+	else if (WIFSIGNALED(status) && WTERMSIG(status) == SIGABRT)
+		test->status = ABORT;
+	else if (WIFSIGNALED(status) && WTERMSIG(status) == SIGFPE)
+		test->status = FPE;
+	else if (WIFSIGNALED(status) && WTERMSIG(status) == SIGPIPE)
+		test->status = PIPE;
+	else if (WIFSIGNALED(status) && WTERMSIG(status) == SIGILL)
+		test->status = ILL;
 }
 
 static void	execute_test(t_suite *suite, t_test *test)

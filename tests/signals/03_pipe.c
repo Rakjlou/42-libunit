@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   03_pipe.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 23:46:31 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/09 07:02:36 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/09 07:05:41 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/09 07:08:44 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "launchers.h"
+#include <signal.h>
 
-int	main(void)
+int	pipe_test(void)
 {
-	t_suite	suite;
-
-	init_suite(&suite);
-	success_launcher(&suite);
-	failure_launcher(&suite);
-	sigsev_launcher(&suite);
-	sigbus_launcher(&suite);
-	stdout_launcher(&suite);
-	timeout_launcher(&suite);
-	signals_launcher(&suite);
-	return (end_suite(&suite));
+	raise(SIGPIPE);
+	return (0);
 }
