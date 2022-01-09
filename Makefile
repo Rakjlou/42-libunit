@@ -44,7 +44,7 @@ $(NAME): $(OBJ)
 
 bonus: all
 
-test:
+test: all
 	make --no-print-directory -C tests/ test
 
 clean:

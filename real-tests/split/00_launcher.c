@@ -10,8 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "tests.h"
 #include "libunit.h"
+
+void	free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i] != NULL)
+	{
+		free(split[i]);
+		++i;
+	}
+}
 
 void	launcher_split(t_suite *suite)
 {

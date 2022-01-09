@@ -51,11 +51,14 @@ LDLIBS = -lunit -lft
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(PROJECT_DIR)libft.a
 	$(CC) $(OBJ) -o $@ $(LDFLAGS) $(LDLIBS)
 
-test: all
+test: libft all
 	./tests
+
+libft:
+	make -C $(PROJECT_DIR)
 
 clean:
 	rm -f $(OBJ)

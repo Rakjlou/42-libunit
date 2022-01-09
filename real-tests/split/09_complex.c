@@ -11,20 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "tests.h"
 #include <string.h>
-#include <stdlib.h>
-
-static void	free_split(char **split)
-{
-	int	i;
-
-	i = 0;
-	while (split[i] != NULL)
-	{
-		free(split[i]);
-		++i;
-	}
-}
 
 int	test_complex(void)
 {

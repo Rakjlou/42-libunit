@@ -13,14 +13,15 @@
 #ifndef TESTS_H
 # define TESTS_H
 
-int	test_simple(void);
-int	test_no_split(void);
-int	test_split_on_zero(void);
-int	test_only_splittable_chars(void);
-int	test_empty_string(void);
-int	test_split_char_end(void);
-int	test_split_char_start(void);
-int	test_split_char_start_end(void);
-int	test_complex(void);
+void	free_split(char **split);
+int		test_simple(void);
+int		test_no_split(void);
+int		test_split_on_zero(void);
+int		test_only_splittable_chars(void);
+int		test_empty_string(void);
+int		test_split_char_end(void);
+int		test_split_char_start(void);
+int		test_split_char_start_end(void);
+int		test_complex(void);
 
 #endif
